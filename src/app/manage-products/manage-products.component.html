@@ -1,0 +1,63 @@
+<p>manage-products works!</p>
+<div class="container">
+    <div class="row">
+<div class="col-md-6" >
+<form>
+    <div class="form-group">
+        <label for="id">Product Id</label>
+        <input type="text" class="form-control" id="id" #id>
+    </div>
+    <div class="form-group">
+        <label for="name">Product Name</label>
+       <input type="text" class="form-control" id="name" #name>
+    </div>
+    <div class="form-group">
+        <label for="price">Product Price</label>
+        <input type="text" class="form-control" id="price" #price>
+     </div>
+     <button type="button" class="btn btn-primary" (click)="onAddProduct(id,name,price)">{{editMode? 'Update Product':'Add product'}}</button>
+     <button type="button" class="btn btn-success mx-2" (click)="onSaveProduct()">Save Product</button>
+     <button type="button" class="btn btn-warning" (click)="onFatchProduct()">Fatch Product</button>
+    
+    </form>
+</div>
+
+<div class="col-md-6">
+    <h2>{{dataTitle | async}}</h2>
+    <table class="table">
+         <thead class="thread-dark">
+             <tr>
+                 <td scope="col">#</td>
+                 <th scope="col">Id</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Edit</th>
+                 <th scope="col">Delete</th>
+             </tr>
+         </thead>
+         <tbody *ngIf="!fetching">
+             <tr *ngFor="let product of products; index as i">
+                 <th scope="row">{{i+1}}</th>
+                 <td>{{product.id}}</td>
+                 <td>{{product.name}}</td>
+                 <td>{{product.price}}</td>
+                 <td (click)="onEditProduct(i)"><a class="text-danger">Edit Button</a></td>
+                 <td (click)="onDeleteProduct(i)"><a class="text-danger">Delete_Button</a></td>
+                 
+             </tr>
+         </tbody>
+
+    </table>
+    
+    <div *ngIf="fetching" class="text-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+       Fetching product...
+    </div>
+
+</div>
+</div>
+</div>
+
+

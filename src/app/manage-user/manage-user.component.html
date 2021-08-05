@@ -1,0 +1,45 @@
+<p>manage-user works!</p>
+<div class="container">
+    <div class="row">
+<div class="col-md-6" >
+    <h2>Add User</h2>
+<form #userForm="ngForm" (ngSubmit)="onAddUser(userForm.value)">
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input type="text" class="form-control" id="userName"  placeholder="Enter User name" name="name" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="technologyUse">Technology Use</label>
+      <input type="text" class="form-control" id="technologyUse" placeholder="Technology Use" name="technology" ngModel required>
+    </div>
+    <button type="submit" class="btn btn-primary" >{{editMode?'Edit User':'Add User'}}</button>
+    <button type="button" class="btn btn-warning">Fetch User</button>
+  </form>
+  </div>
+
+  <div class="col-md-6" >
+    <table class="table">
+         <thead class="thread-dark">
+              <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Technology</th>
+                  <th scope="col" class="text-center">Edit</th>
+                  <th scope="col" class="text-center">Delete</th>
+              </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let user of users, index as i">
+                 <td>{{user.name}}</td>
+                 <td>{{user.technology}}</td>
+                 <td class="text-center"><a class="text-danger" (click)="onEditUser(user.userId,i)">Edit</a></td>
+                 <td class="text-center"><a class="text-danger" (click)="onDeleteUser(user.userId)" >Deete</a></td>
+             </tr>
+         </tbody>
+
+    </table>
+ </div>
+
+  </div>
+  </div>
+
+    

@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +94,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "firebaseCrud"
+    }
+  },
+  "defaultProject": "firebaseCrud",
+  "cli": {
+    "analytics": "012e3869-afc5-4cf4-a470-e4378dfbddec"
+  }
 }
